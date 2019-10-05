@@ -1,0 +1,12 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "description": "Iman Kalyan Majumdar",
+    "version": "1.0.0",
+    "title": "DueDil-Challenge-Api",
+    "contact": {
+      "email": "iman.m93@gmail.com"
+    },
+    "license": {}
+  }
+}

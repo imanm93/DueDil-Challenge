@@ -1,0 +1,37 @@
+version: '3.3'
+services:
+
+  rabbit:
+    hostname: rabbit
+    image: rabbitmq:latest
+    environment:
+      - RABBITMQ_DEFAULT_USER=admin
+      - RABBITMQ_DEFAULT_PASS=pass
+    ports:
+      - "5673:5672"
+
+  api:
+    build: .
+    environment:
+      - APPLICATION_MODE=TEST
+    ports:
+      - "5000:5000"
+    volumes:
+      - .:/api
+    depends_on:
+      - rabbit
+
+  worker:
+    build:
+      context: .
+    environment:
+      - APPLICATION_MODE=TEST
+    hostname: worker
+    entrypoint: celery
+    command: -A app.tasks worker --loglevel=info
+    volumes:
+      - .:/api
+    links:
+      - rabbit
+    depends_on:
+      - rabbit
