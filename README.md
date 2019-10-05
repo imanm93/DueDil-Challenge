@@ -21,10 +21,10 @@ docker-compose up --build
 
 To upload a User file to compute matches please make a POST request using Postman or any other utility (such as curl) - specifying the file you want to upload and threshold you want to use.
 
-An example with curl looks like below.
+An example with curl looks like below. The command has to be executed from the directory in which your file exists.
 
 ```
-curl -v -F threshold=value -F file=@yourlocalfilename http://127.0.0.1:5000/api/v1/user/records
+curl -v -F threshold=0.5 -F file=@sample_user_records.csv http://127.0.0.1:5000/api/v1/user/records
 ```
 
 Take note of the `id` returned by the response. You will need this to check the status of your request and download the output.
