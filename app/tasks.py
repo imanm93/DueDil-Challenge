@@ -22,8 +22,10 @@ def generate_matches(self, file, min_threshold):
     :param min_threshold: User specified threshold for matching algorithm
     :return string: Denoting successful completion of task
     """
-    
+
     self.update_state(state='STARTED', meta={})
+    if config.TESTING: # ONLY FOR TESTING PURPOSES
+        time.sleep(1)
 
     # Parse files
     data = parse_file(file)
