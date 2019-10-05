@@ -49,7 +49,7 @@ The different statuses you will see are described below.
 | SUCCESS | The process has completed and was successful | You will never actually see this state. Instead the file will download on your browser once this state is reached |
 | FAILED | The process had some error and exited | |
 
-**NOTE: Without the forceful delay put in during test mode it is unlikely you will be able to view any state other than PENDING and SUCCESS unless you increase the size of your input.csv file or companies.csv file by a significant amount.
+**NOTE: Without the forceful delay put in during test mode it is unlikely you will be able to view any state other than PENDING and SUCCESS unless you increase the size of your input.csv file or companies.csv file by a significant amount.**
 
 ## Run Tests
 
