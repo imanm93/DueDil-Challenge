@@ -24,7 +24,7 @@ To upload a User file to compute matches please make a POST request using Postma
 An example with curl looks like below.
 
 ```
-curl -v -F threshold=value -F file=@yourlocalfilename http://127.0.0.1:5000/api/v1/records
+curl -v -F threshold=value -F file=@yourlocalfilename http://127.0.0.1:5000/api/v1/user/records
 ```
 
 Take note of the `id` returned by the response. You will need this to check the status of your request and download the output.
@@ -46,8 +46,10 @@ The different statuses you will see are described below.
 | MATCHING_IN_PROGRESS | The process has started to compute the matches for the user uploaded file | You are also shown the current record it is matching out of the total records provided |
 | MATCHING_COMPLETE | The process has completed computing the matches for the user uploaded file | |
 | FILE_IN_CREATION | The process has started to create the result | You are also shown the current record it is writing to the file out of the total records to be written |
-| SUCCESS | The process has completed and was successful | |
+| SUCCESS | The process has completed and was successful | You will never actually see this state. Instead the file will download on your browser once this state is reached |
 | FAILED | The process had some error and exited | |
+
+**NOTE: Without the forceful delay put in during test mode it is unlikely you will be able to view any state other than PENDING and SUCCESS unless you increase the size of your input.csv file or companies.csv file by a significant amount.
 
 ## Run Tests
 
