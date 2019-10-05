@@ -12,8 +12,8 @@ services:
 
   api:
     build: .
-    environment:
-      - APPLICATION_MODE=TEST
+    # environment:
+    #   - APPLICATION_MODE=TEST
     ports:
       - "5000:5000"
     volumes:
@@ -24,8 +24,8 @@ services:
   worker:
     build:
       context: .
-    environment:
-      - APPLICATION_MODE=TEST
+    # environment:
+    #   - APPLICATION_MODE=TEST
     hostname: worker
     entrypoint: celery
     command: -A app.tasks worker --loglevel=info
