@@ -1,4 +1,4 @@
-Flask==1.0.3
+Flask==2.3.2
 pytest==4.6.3
 flask-swagger-ui==3.20.9
 celery
